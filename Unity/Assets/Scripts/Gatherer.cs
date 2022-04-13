@@ -6,9 +6,11 @@ namespace clicker
 {
     public class Gatherer : MonoBehaviour
     {
-        private float timePassed;
-        [SerializeField] private float timeToPassedBeforeCollect;
+        
 
+        private float timePassed;
+        [SerializeField] static private float timeToPassedBeforeCollect;
+        public static float GetTimeToPassedBeforeCollect { get { return timeToPassedBeforeCollect; } }
         public PlayerInformation player;
 
         /// <summary>

@@ -5,11 +5,23 @@ using System;
 
 namespace clicker
 {
-    
+    public struct UpgradeInfo
+    {
+        public int value;
+        public int actualLvl;
+
+       public UpgradeInfo(int value, int actualLvl)
+       {
+            this.value = value;
+            this.actualLvl = actualLvl;
+       }
+    }
 
     [Serializable]
     public class UpgradesValues
     {
+
+
         public const int COST_UPGRADE = 20;
 
         [SerializeField] private int[] values;
@@ -34,7 +46,10 @@ namespace clicker
             return values[PlayerLvl];
         }
 
-
+        public UpgradeInfo GetInfo()
+        {
+            return new UpgradeInfo(GetValue(), PlayerLvl);
+        }
     }
 }
 

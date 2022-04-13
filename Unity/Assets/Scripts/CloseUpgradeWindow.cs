@@ -9,7 +9,6 @@ public class CloseUpgradeWindow : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Window deactivate");
         windowToClose.SetActive(false);
     }
 }

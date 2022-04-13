@@ -7,7 +7,10 @@ namespace clicker
     public class PlayerInformation : MonoBehaviour
     {
         [SerializeField] private UpgradesValues ressourcesPerClick;
+        public UpgradeInfo RessourcePerClickInfo { get { return ressourcesPerClick.GetInfo(); } }
+
         [SerializeField] private UpgradesValues ressourcesPerTime;
+        public UpgradeInfo RessourcePerTimeInfo { get { return ressourcesPerTime.GetInfo(); } }
 
         /* This function would have been use to generate automatically the desired values 
          * for ressourcesPerClick and ressourcesPerTime if the values wouldn't have been 
