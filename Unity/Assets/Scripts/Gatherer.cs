@@ -9,16 +9,37 @@ namespace clicker
         private float timePassed;
         [SerializeField] private float timeToPassedBeforeCollect;
 
-        // Start is called before the first frame update
+        public PlayerInformation player;
+
+        /// <summary>
+        /// Init
+        /// </summary>
         void Start()
         {
-            
+            timePassed = 0f;
         }
 
-        // Update is called once per frame
+        // Update the timer
         void Update()
         {
-            
+            timePassed += Time.deltaTime;
+
+            // If the timer has passed, collect 
+            if(timePassed > timeToPassedBeforeCollect)
+            {
+                Collect();
+
+                // Reset time
+                timePassed = 0f;
+            }
+        }
+
+        /// <summary>
+        /// Add score to the user depending on the level of the gatherer
+        /// </summary>
+        private void Collect()
+        {
+            player.CollectFromGatherer();
         }
     }
 }

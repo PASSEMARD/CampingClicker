@@ -7526,7 +7526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf587bcd33e5a648aaaeb2090059a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToPassedBeforeCollect: 0
+  timeToPassedBeforeCollect: 5
+  player: {fileID: 0}
 --- !u!1001 &9070083436436268317
 PrefabInstance:
   m_ObjectHideFlags: 0

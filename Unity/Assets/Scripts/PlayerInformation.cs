@@ -33,9 +33,20 @@ namespace clicker
 
         public Scorer scorer;
 
+        /// <summary>
+        /// Function to trigger when the user click on the tent
+        /// </summary>
         public void UserCLickOnTent()
         {
             scorer.IncreaseScore(ressourcesPerClick.GetValue());
+        }
+
+        /// <summary>
+        /// Collect the score gain by the Gatherer
+        /// </summary>
+        public void CollectFromGatherer()
+        {
+            scorer.IncreaseScore(ressourcesPerTime.GetValue());
         }
 
         /// <summary>
