@@ -6,17 +6,30 @@ namespace clicker
     public class Scorer : MonoBehaviour
     {
         [SerializeField] private TMP_Text _textbox;
-        private int _score;
+        public int Score { get; private set; }
 
         private void OnEnable()
         {
-            _textbox.SetText(_score.ToString());
+            _textbox.SetText(Score.ToString());
         }
 
-        public void IncreaseScore()
+        /// <summary>
+        /// Increase the overal score.
+        /// </summary>
+        /// <param name="value">The value to increase the score.</param>
+        public void IncreaseScore(int value)
         {
-            _score++;
-            _textbox.SetText(_score.ToString());
+            Score += value;
+            _textbox.SetText(Score.ToString());
+        }
+
+        /// <summary>
+        /// Decrease the overal score.
+        /// </summary>
+        /// <param name="value">The value to decreade the score with.</param>
+        public void DecreaseScore(int value)
+        {
+            IncreaseScore(-value);
         }
     }
 }
