@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class CloseUpgradeWindow : MonoBehaviour, IPointerDownHandler
 {
-    public GameObject windowToClose;
+    [field: SerializeField] public GameObject windowToClose { get; private set; }
 
     public void OnPointerDown(PointerEventData eventData)
     {

@@ -33,8 +33,7 @@ namespace clicker
                     ressourcesPerTime[i] = 1 << (i - 1); // Time to get funky #2
             }
         } */
-
-        public Scorer scorer;
+        [field: SerializeField] public Scorer scorer { get; private set; }
 
         /// <summary>
         /// Function to trigger when the user click on the tent

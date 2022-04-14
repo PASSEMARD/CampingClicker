@@ -8,7 +8,7 @@ namespace clicker
         /// <summary>
         /// Get the player information
         /// </summary>
-        public PlayerInformation player;
+        [field: SerializeField] public PlayerInformation player { get; private set; }
 
         [SerializeField] private TMP_Text actualValueClick;
         [SerializeField] private TMP_Text lvlClick;
