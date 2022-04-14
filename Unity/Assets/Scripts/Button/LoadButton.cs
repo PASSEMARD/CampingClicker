@@ -52,7 +52,6 @@ namespace clicker
 
             if(text == " Code not found")
             {
-                Debug.Log("Activated !");
                 codeNotFoundWindow.SetActive(true);
             }
         }
