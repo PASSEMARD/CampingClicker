@@ -205,6 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 32636415}
+  - component: {fileID: 32636416}
   m_Layer: 0
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -228,6 +229,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32636416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32636414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a21c159d62bfc447a26d933b1bb8733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2137605032}
+  actualValueClick: {fileID: 40918808}
+  lvlClick: {fileID: 529881370}
+  priceUpgradeClick: {fileID: 0}
+  actualValueGatherer: {fileID: 1950847682}
+  lvlGatherer: {fileID: 484234200}
+  priceUpgradeGatherer: {fileID: 0}
 --- !u!1 &32765765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2924,6 @@ GameObject:
   - component: {fileID: 1024754638}
   - component: {fileID: 1024754637}
   - component: {fileID: 1024754636}
-  - component: {fileID: 1024754640}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2994,19 +3013,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1024754640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024754635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a21c159d62bfc447a26d933b1bb8733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2137605032}
 --- !u!1001 &1027208002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7526,8 +7532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf587bcd33e5a648aaaeb2090059a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToPassedBeforeCollect: 5
-  player: {fileID: 0}
+  player: {fileID: 2137605032}
 --- !u!1001 &9070083436436268317
 PrefabInstance:
   m_ObjectHideFlags: 0
