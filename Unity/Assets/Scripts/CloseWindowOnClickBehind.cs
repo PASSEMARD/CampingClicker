@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CloseUpgradeWindow : MonoBehaviour, IPointerDownHandler
+public class CloseWindowOnClickBehind : MonoBehaviour, IPointerDownHandler
 {
     [field: SerializeField] public GameObject windowToClose { get; private set; }
 

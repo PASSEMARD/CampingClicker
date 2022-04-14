@@ -81,6 +81,13 @@ namespace clicker
                 }
             }
         }
+
+        public void Load(int score, int upgradeClick, int upgradeGatherer)
+        {
+            scorer.Score = score;
+            ressourcesPerClick.PlayerLvl = upgradeClick;
+            ressourcesPerTime.PlayerLvl = upgradeGatherer;
+        }
     }
 
 }

@@ -24,7 +24,7 @@ namespace clicker
             UpdateText();
         }
 
-        private void UpdateText()
+        public void UpdateText()
         {
             UpgradeInfo clickUpgrade = player.RessourcePerClickInfo;
             actualValueClick.SetText(clickUpgrade.value.ToString() + " per click");

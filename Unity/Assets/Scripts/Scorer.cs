@@ -6,7 +6,7 @@ namespace clicker
     public class Scorer : MonoBehaviour
     {
         [SerializeField] private TMP_Text _textbox;
-        public int Score { get; private set; }
+        public int Score { get; set; }
 
         private void OnEnable()
         {

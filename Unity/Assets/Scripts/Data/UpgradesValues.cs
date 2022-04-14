@@ -25,7 +25,7 @@ namespace clicker
         public const int COST_UPGRADE = 20;
 
         [SerializeField] private int[] values;
-        public int PlayerLvl { get; protected set; }
+        public int PlayerLvl { get; set; }
 
         /// <summary>
         /// Return if the lvl can be increase futhermore or not

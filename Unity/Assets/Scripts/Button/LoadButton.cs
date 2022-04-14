@@ -10,8 +10,10 @@ namespace clicker
     {
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private GameObject windowToClose;
+        [SerializeField] private GameObject codeNotFoundWindow;
 
         [SerializeField] private GameObject loadingScreen;
+        [SerializeField] private PlayerInformation player;
 
         [field: SerializeField] public MainNetworkObject Network { get; private set; }
         [field: SerializeField] public Button CustomBehavior { get; private set; }
@@ -22,7 +24,9 @@ namespace clicker
             CustomBehavior.onClick.AddListener(CustomBehavior_OnClick);
         }
 
-
+        /// <summary>
+        /// Change the behavior of the Button
+        /// </summary>
         private void CustomBehavior_OnClick()
         {
             // Load the game if the code have a good size
@@ -43,6 +47,14 @@ namespace clicker
         {
             Debug.Log(error);
             Debug.Log(text);
+            // Close the loading screen
+            loadingScreen.SetActive(false);
+
+            if(text == " Code not found")
+            {
+                Debug.Log("Activated !");
+                codeNotFoundWindow.SetActive(true);
+            }
         }
 
 
@@ -63,14 +75,13 @@ namespace clicker
         /// <param name="res">the JSON value for the save to load</param>
         private void SuccessHandler(string res)
         {
-            // Close the loading screen
-            loadingScreen.SetActive(false);
-
             // Read Json received from the server
             LoadJsonResponse rep = JsonUtility.FromJson<LoadJsonResponse>(res);
-            Debug.Log(rep.score);
-            Debug.Log(rep.upgradeClick);
-            Debug.Log(rep.upgradeGatherer);
+
+            player.Load(rep.score, rep.upgradeClick, rep.upgradeGatherer);
+
+            // Close the loading screen, it's must be before changing all game informations ofc
+            loadingScreen.SetActive(false);
         }
     }
 }
