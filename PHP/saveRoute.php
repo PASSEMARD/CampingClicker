@@ -8,12 +8,13 @@
         $sanitizeOptions = array(
             'score' => FILTER_SANITIZE_NUMBER_INT,
             'upgradeClick' => FILTER_SANITIZE_NUMBER_INT,
-            'upgradeGatherer' => FILTER_SANITIZE_NUMBER_INT
+            'upgradeGatherer' => FILTER_SANITIZE_NUMBER_INT,
+            'treeMap' => FILTER_SANITIZE_SPECIAL_CHARS
         );
-
+        
         // Check arguments
+        $args = array('score', 'upgradeClick', 'upgradeGatherer', 'treeMap');
 
-        $args = array('score', 'upgradeClick', 'upgradeGatherer');
         for($i=0; $i < count($args); $i++)
         {
             /* If the argument his not found in the request, return false for a 400 bad request result,
@@ -32,7 +33,7 @@
         $saveCode = GenerateRandomCode();
         
         // Add inside the BDD the value of the save
-        if(!AddSave($saveCode, $input['score'], $input['upgradeClick'], $input['upgradeGatherer']))
+        if(!AddSave($saveCode, $input['score'], $input['upgradeClick'], $input['upgradeGatherer'], $input['treeMap']))
         {
             // If a problem have been trigger
             return false;
@@ -80,10 +81,10 @@
         return $res->num_rows == 0;
     }
 
-    function AddSave($code, $score, $upgradeClick, $upgradeGatherer)
+    function AddSave($code, $score, $upgradeClick, $upgradeGatherer, $treeMap)
     {
         // Setup the query to save
-        $query = "INSERT INTO save_table(id_save, score, upgrade_click, upgrade_gatherer) VALUES ('$code', $score, $upgradeClick, $upgradeGatherer);";
+        $query = "INSERT INTO save_table(id_save, score, upgrade_click, upgrade_gatherer, tree_map) VALUES ('$code', $score, $upgradeClick, $upgradeGatherer, '$treeMap');";
         
         // connect to mysql 
         $mysql = ConnectMySQL();

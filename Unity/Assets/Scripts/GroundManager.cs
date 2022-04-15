@@ -36,7 +36,7 @@ namespace clicker
             for(int x=0; x < X_LENGTH; x++)
             {
                 ground.Add(new List<char>());
-                for(int z=0; z < Y_LENGTH; z++)
+                for(int y=0; y < Y_LENGTH; y++)
                 {
                     ground[x].Add('0');
                 }
@@ -59,7 +59,7 @@ namespace clicker
                 // Add it inside an empty object with all the tree 
                 tree.transform.parent = treeParent.transform; 
 
-                // Keep update the information about the forest :3
+                // Keep update the information about the forest 
                 treeNumber++;
                 ground[x][y] = type.ToString()[0]; // /!\ Can broke if more than 10 type are added to the game
             }
@@ -76,6 +76,21 @@ namespace clicker
                 // Check for random coordonate untile a empty one has been found
             } while (ground[x][y] != '0');
             return (x, y);
+        }
+
+        /// <summary>
+        /// Copy the logical data inside a string and return it
+        /// </summary>
+        /// <returns>Return a (X_LENGTH x Y_LENGTH) string containning all logical data</returns>
+        public string GetLogicalTreeHasString()
+        {
+            string res = "";
+
+            for (int x = 0; x < X_LENGTH; x++)
+                for (int y = 0; y < Y_LENGTH; y++)
+                    res += ground[x][y];
+
+            return res;
         }
     }
 

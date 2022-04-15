@@ -23,7 +23,10 @@
         $res = $mysql->query($query);
 
         if($res->num_rows == 0)
+        {
+            echo("Code not found");
             return false; // If no row were find, trigger an error
+        }
         
         // Send the request
         $row = $res->fetch_assoc();
@@ -32,7 +35,8 @@
         $result = array(
             "score"=>$row['score'],
             "upgradeClick"=>$row['upgrade_click'],
-            "upgradeGatherer"=>$row['upgrade_gatherer'] 
+            "upgradeGatherer"=>$row['upgrade_gatherer'],
+            "treeMap"=>$row['tree_map']
         );
 
         $jsonResult = json_encode($result);
