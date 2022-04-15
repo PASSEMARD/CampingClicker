@@ -827,6 +827,7 @@ MonoBehaviour:
   customBehavior: {fileID: 123692400}
   loadingScreen: {fileID: 1917749886}
   network: {fileID: 710925640}
+  simpleInformationWindow: {fileID: 956817761}
 --- !u!1001 &148758508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3561,8 +3562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe4b7794ed99748880900b462a3519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <player>k__BackingField: {fileID: 2137605032}
-  <scorer>k__BackingField: {fileID: 2137605029}
+  player: {fileID: 2137605032}
+  scorer: {fileID: 2137605029}
+  groundManager: {fileID: 268216616}
 --- !u!4 &710925641
 Transform:
   m_ObjectHideFlags: 0
@@ -4377,8 +4379,9 @@ GameObject:
   - component: {fileID: 956817759}
   - component: {fileID: 956817758}
   - component: {fileID: 956817757}
+  - component: {fileID: 956817761}
   m_Layer: 5
-  m_Name: CodeNotFound
+  m_Name: SimpleInformationWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4465,6 +4468,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &956817761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956817756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7317730981616a48b63f5295cc82461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpText: {fileID: 1636899748}
+  windowToShow: {fileID: 956817756}
 --- !u!1 &962147952
 GameObject:
   m_ObjectHideFlags: 0
@@ -5677,7 +5694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1787237385}
   windowToClose: {fileID: 1169404202}
-  codeNotFoundWindow: {fileID: 956817756}
+  simpleInformationWindow: {fileID: 956817761}
   loadingScreen: {fileID: 1917749886}
   player: {fileID: 2137605032}
   <Network>k__BackingField: {fileID: 710925640}
@@ -8274,8 +8291,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8303,7 +8320,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -71.39422, y: -50.608467, z: -72.29783, w: -50.60851}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

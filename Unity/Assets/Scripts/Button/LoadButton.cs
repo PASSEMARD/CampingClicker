@@ -10,7 +10,7 @@ namespace clicker
     {
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private GameObject windowToClose;
-        [SerializeField] private GameObject codeNotFoundWindow;
+        [SerializeField] private ShowSimpleInformation simpleInformationWindow;
 
         [SerializeField] private GameObject loadingScreen;
         [SerializeField] private PlayerInformation player;
@@ -45,15 +45,21 @@ namespace clicker
 
         private void ErrorHandler(string error, string text)
         {
-            Debug.Log(error);
-            Debug.Log(text);
-            // Close the loading screen
-            loadingScreen.SetActive(false);
+            // Log error
+            Debug.LogError("Error from Network :" + error);
+            Debug.Log("Server information :" + text);
 
             if(text == " Code not found")
             {
-                codeNotFoundWindow.SetActive(true);
+                simpleInformationWindow.Show(text, 36f);
             }
+            else
+            {
+                simpleInformationWindow.Show(error, 20f);
+            }
+
+            // Close the loading screen
+            loadingScreen.SetActive(false);
         }
 
 
@@ -66,6 +72,7 @@ namespace clicker
             public int score;
             public int upgradeClick;
             public int upgradeGatherer;
+            public string treeMap;
         }
         
         /// <summary>
@@ -77,7 +84,7 @@ namespace clicker
             // Read Json received from the server
             LoadJsonResponse rep = JsonUtility.FromJson<LoadJsonResponse>(res);
 
-            player.Load(rep.score, rep.upgradeClick, rep.upgradeGatherer);
+            player.Load(rep.score, rep.upgradeClick, rep.upgradeGatherer, rep.treeMap);
 
             // Close the loading screen, it's must be before changing all game informations ofc
             loadingScreen.SetActive(false);

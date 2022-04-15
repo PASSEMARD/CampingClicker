@@ -7,8 +7,7 @@ namespace clicker
     public class Gatherer : MonoBehaviour
     {
         private float timePassed;
-        [SerializeField] static private float timeToPassedBeforeCollect;
-        public static float GetTimeToPassedBeforeCollect { get { return timeToPassedBeforeCollect; } }
+        public const float TIME_TO_PASSED_BEFORE_COLLECT = 5f;
         [field: SerializeField] public PlayerInformation player { get; private set; }
 
         /// <summary>
@@ -25,7 +24,7 @@ namespace clicker
             timePassed += Time.deltaTime;
 
             // If the timer has passed, collect 
-            if(timePassed > timeToPassedBeforeCollect)
+            if(timePassed > TIME_TO_PASSED_BEFORE_COLLECT)
             {
                 Collect();
 

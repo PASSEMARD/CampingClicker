@@ -37,8 +37,8 @@ namespace clicker
 
             UpgradeInfo gathererUpgrade = player.RessourcePerTimeInfo;
 
-            actualValueGatherer.SetText(gathererUpgrade.value.ToString() + " every " + Gatherer.GetTimeToPassedBeforeCollect.ToString("G")) ;
-            AddLvl(lvlGatherer, clickUpgrade.actualLvl);
+            actualValueGatherer.SetText(gathererUpgrade.value.ToString() + " every " + Gatherer.TIME_TO_PASSED_BEFORE_COLLECT.ToString("G")) ;
+            AddLvl(lvlGatherer, gathererUpgrade.actualLvl);
 
             // If we need to change the price between upgrades, now we can easily.
             priceUpgradeClick.text = "Upgrade for " + UpgradesValues.COST_UPGRADE.ToString();

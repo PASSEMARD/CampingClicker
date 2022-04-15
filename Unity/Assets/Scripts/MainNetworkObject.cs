@@ -12,8 +12,10 @@ namespace clicker
     {
         private string host = "http://localhost/CampingClicker/";
 
-        [field: SerializeField] public PlayerInformation player { get; private set; }
-        [field: SerializeField] public Scorer scorer { get; private set; }
+
+        [SerializeField] private PlayerInformation player;
+        [SerializeField] private Scorer scorer;
+        [SerializeField] private GroundManager groundManager;
 
         public void Save(CallBackFromServer callBack, ErrorCallBackFromServer errorCallBack)
         {
@@ -22,7 +24,8 @@ namespace clicker
             {
                 { "score", scorer.Score.ToString() },
                 { "upgradeClick", player.RessourcePerClickInfo.actualLvl.ToString() },
-                { "upgradeGatherer", player.RessourcePerTimeInfo.actualLvl.ToString() }
+                { "upgradeGatherer", player.RessourcePerTimeInfo.actualLvl.ToString() },
+                { "treeMap", groundManager.GetLogicalTreeHasString() }
             };
 
             StartCoroutine(Post(callBack, errorCallBack, "save", valuesToSend));

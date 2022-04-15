@@ -62,11 +62,14 @@ namespace clicker
             }
         }
 
-        public void Load(int score, int upgradeClick, int upgradeGatherer)
+        public void Load(int score, int upgradeClick, int upgradeGatherer, string treeMap)
         {
             scorer.Score = score;
             ressourcesPerClick.PlayerLvl = upgradeClick;
             ressourcesPerTime.PlayerLvl = upgradeGatherer;
+
+            // Load new forest :D
+            ground.LoadTree(treeMap);
         }
 
         /// <summary>
